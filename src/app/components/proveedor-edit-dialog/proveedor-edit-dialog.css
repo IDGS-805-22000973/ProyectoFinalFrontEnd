@@ -1,0 +1,13 @@
+/* components/proveedor-edit-dialog/proveedor-edit-dialog.css */
+.full-width {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+mat-form-field {
+  margin-bottom: 0.5rem;
+}
+
+.mat-dialog-actions {
+  padding: 16px 0;
+}

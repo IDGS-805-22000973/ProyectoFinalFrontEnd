@@ -1,0 +1,13 @@
+.materia-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+mat-form-field {
+  margin-bottom: 0.5rem;
+}

@@ -1,0 +1,56 @@
+<!-- components/usuario-edit-dialog/usuario-edit-dialog.html -->
+<div class="bg-white">
+  <h2 mat-dialog-title class="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-4 mb-6 m-0">
+    Editar Usuario
+  </h2>  
+
+  <mat-dialog-content class="min-w-96 px-0">   
+    <form [formGroup]="editForm" class="space-y-5">     
+      <mat-form-field appearance="outline" class="w-full block">       
+        <mat-label>Nombre completo</mat-label>       
+        <input matInput formControlName="nombre" 
+               placeholder="Ingrese el nombre completo">       
+        <mat-error *ngIf="editForm.get('nombre')?.hasError('required')">         
+          El nombre es requerido       
+        </mat-error>     
+      </mat-form-field>      
+
+      <mat-form-field appearance="outline" class="w-full block">       
+        <mat-label>Correo electrónico</mat-label>       
+        <input matInput formControlName="email" type="email"
+               placeholder="ejemplo@correo.com">       
+        <mat-error *ngIf="editForm.get('email')?.hasError('required')">         
+          El email es requerido       
+        </mat-error>       
+        <mat-error *ngIf="editForm.get('email')?.hasError('email')">         
+          Ingrese un email válido       
+        </mat-error>     
+      </mat-form-field>      
+
+      <mat-form-field appearance="outline" class="w-full block">       
+        <mat-label>Rol del usuario</mat-label>       
+        <mat-select formControlName="rol">         
+          <mat-option *ngFor="let rol of roles" [value]="rol">
+            {{rol}}
+          </mat-option>       
+        </mat-select>     
+      </mat-form-field>   
+    </form> 
+  </mat-dialog-content>  
+
+  <mat-dialog-actions align="end" class="border-t border-gray-200 pt-6 mt-6 gap-3">   
+    <button mat-button (click)="onCancel()" 
+            class="px-6 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-50 font-medium transition-colors duration-200 rounded-md">
+      Cancelar
+    </button>   
+    <button mat-raised-button color="primary"            
+            [disabled]="editForm.invalid"           
+            [mat-dialog-close]="editForm.value"
+            class="px-8 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-sm hover:shadow-md transition-all duration-200 rounded-md disabled:bg-gray-300 disabled:cursor-not-allowed disabled:shadow-none">     
+      <span class="flex items-center gap-2">
+        <mat-icon class="text-lg">save</mat-icon>
+        Guardar cambios
+      </span>   
+    </button> 
+  </mat-dialog-actions>
+</div>

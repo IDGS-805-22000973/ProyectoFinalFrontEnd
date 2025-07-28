@@ -1,0 +1,11 @@
+table {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: 20px auto;
+}
+
+.container {
+  padding: 20px;
+}

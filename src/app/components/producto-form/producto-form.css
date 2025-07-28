@@ -1,0 +1,35 @@
+.producto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.componentes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.componente-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.componente-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 15px;
+  align-items: center;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+}

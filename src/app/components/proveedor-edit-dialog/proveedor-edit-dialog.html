@@ -1,0 +1,49 @@
+<!-- components/proveedor-edit-dialog/proveedor-edit-dialog.html -->
+<h2 mat-dialog-title>Editar Proveedor</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombre*</mat-label>
+      <input matInput formControlName="nombre">
+      <mat-error *ngIf="editForm.get('nombre')?.hasError('required')">
+        Nombre es requerido
+      </mat-error>
+      <mat-error *ngIf="editForm.get('nombre')?.hasError('minlength')">
+        Mínimo 3 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Empresa</mat-label>
+      <input matInput formControlName="empresa">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Correo electrónico</mat-label>
+      <input matInput type="email" formControlName="correo">
+      <mat-error *ngIf="editForm.get('correo')?.hasError('email')">
+        Ingrese un email válido
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Teléfono</mat-label>
+      <input matInput formControlName="telefono">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Dirección</mat-label>
+      <input matInput formControlName="direccion">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" 
+          (click)="onSubmit()"
+          [disabled]="editForm.invalid || isLoading">
+    {{ isLoading ? 'Guardando...' : 'Guardar' }}
+  </button>
+</mat-dialog-actions>

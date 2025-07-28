@@ -1,0 +1,14 @@
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-acciones {
+  width: 80px;
+  text-align: center;
+}

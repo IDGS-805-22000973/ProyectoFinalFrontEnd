@@ -1,0 +1,146 @@
+<div class="bg-white border border-gray-200 rounded-lg p-6 mb-8 max-h-screen overflow-y-auto">
+  <h3 class="text-lg font-semibold text-gray-800 mb-6">Registrar Nueva Compra</h3>
+  
+  <form [formGroup]="compraForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    
+    <!-- Proveedor -->
+    <div>
+      <label for="proveedor" class="block text-sm font-medium text-gray-700 mb-1">
+        Proveedor
+      </label>
+      <mat-form-field appearance="outline" class="w-full">
+        <mat-select formControlName="proveedorId" required>
+          <mat-option *ngFor="let proveedor of proveedores" [value]="proveedor.id">
+            {{proveedor.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="compraForm.get('proveedorId')?.hasError('required') && compraForm.get('proveedorId')?.touched" 
+           class="text-red-600 text-sm mt-1">
+        Seleccione un proveedor
+      </div>
+    </div>
+
+    <!-- Detalles -->
+    <div formArrayName="detalles" class="space-y-4">
+      <div class="border-t pt-4 sticky top-0 bg-white z-10">
+        <h4 class="text-md font-medium text-gray-700 mb-4">Detalles de Compra</h4>
+      </div>
+      
+      <div class="max-h-96 overflow-y-auto space-y-4 pr-2">
+        <div *ngFor="let detalle of detalles.controls; let i = index" 
+             [formGroupName]="i" 
+             class="bg-gray-50 border border-gray-200 rounded-md p-4 space-y-4">
+          
+          <!-- Header del detalle -->
+          <div class="flex justify-between items-center">
+            <span class="text-sm font-medium text-gray-600">Detalle #{{i + 1}}</span>
+            <button type="button" 
+                    (click)="removerDetalle(i)" 
+                    *ngIf="detalles.length > 1"
+                    class="text-red-600 hover:text-red-800 focus:outline-none transition duration-200">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Campos del detalle -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Materia Prima -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">
+                Materia Prima
+              </label>
+              <mat-form-field appearance="outline" class="w-full">
+                <mat-select formControlName="materiaPrimaId" required>
+                  <mat-option *ngFor="let materia of materiasPrimas" [value]="materia.id">
+                    {{materia.nombre}} ({{materia.unidad}})
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div *ngIf="detalle.get('materiaPrimaId')?.hasError('required') && detalle.get('materiaPrimaId')?.touched" 
+                   class="text-red-600 text-sm mt-1">
+                Seleccione una materia prima
+              </div>
+            </div>
+
+            <!-- Cantidad -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">
+                Cantidad
+              </label>
+              <input 
+                type="number" 
+                formControlName="cantidad" 
+                required
+                placeholder="0"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-200"
+                [class.border-red-500]="detalle.get('cantidad')?.invalid && detalle.get('cantidad')?.touched"
+                [class.focus:ring-red-500]="detalle.get('cantidad')?.invalid && detalle.get('cantidad')?.touched"
+              >
+              <div *ngIf="detalle.get('cantidad')?.hasError('required') && detalle.get('cantidad')?.touched" 
+                   class="text-red-600 text-sm mt-1">
+                Ingrese la cantidad
+              </div>
+              <div *ngIf="detalle.get('cantidad')?.hasError('min') && detalle.get('cantidad')?.touched" 
+                   class="text-red-600 text-sm mt-1">
+                La cantidad debe ser al menos 1
+              </div>
+            </div>
+
+            <!-- Costo Unitario -->
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">
+                Costo Unitario
+              </label>
+              <div class="relative">
+                <input 
+                  type="number" 
+                  step="0.01" 
+                  formControlName="costoUnitario" 
+                  required
+                  placeholder="0.00"
+                  class="w-full px-7 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-200"
+                  [class.border-red-500]="detalle.get('costoUnitario')?.invalid && detalle.get('costoUnitario')?.touched"
+                  [class.focus:ring-red-500]="detalle.get('costoUnitario')?.invalid && detalle.get('costoUnitario')?.touched"
+                >
+                <span class="absolute left-3 top-2 text-gray-500 text-sm">$</span>
+              </div>
+              <div *ngIf="detalle.get('costoUnitario')?.hasError('required') && detalle.get('costoUnitario')?.touched" 
+                   class="text-red-600 text-sm mt-1">
+                Ingrese el costo unitario
+              </div>
+              <div *ngIf="detalle.get('costoUnitario')?.hasError('min') && detalle.get('costoUnitario')?.touched" 
+                   class="text-red-600 text-sm mt-1">
+                El costo debe ser mayor a 0
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Acciones del formulario -->
+    <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t sticky bottom-0 bg-white">
+      <button type="button" 
+              (click)="agregarDetalle()"
+              class="px-4 py-2 border border-purple-500 text-purple-500 font-medium rounded-md hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition duration-200 flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+        </svg>
+        Agregar Detalle
+      </button>
+
+      <button type="submit" 
+              [disabled]="!compraForm.valid"
+              class="sm:ml-auto px-6 py-2 bg-purple-500 text-white font-medium rounded-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        Registrar Compra
+      </button>
+    </div>
+
+  </form>
+</div>

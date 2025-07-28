@@ -1,0 +1,43 @@
+/* components/proveedor-form/proveedor-form.css */
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-row mat-form-field {
+  flex: 1;
+}
+
+/* En móviles, campos en columna */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.submit-button {
+  width: 100%;
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}

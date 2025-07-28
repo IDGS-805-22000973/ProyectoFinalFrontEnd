@@ -1,0 +1,96 @@
+<!-- components/materia-prima-form/materia-prima-form.html -->
+<div class="bg-white border border-gray-200 rounded-lg p-6 mb-8">
+  <h3 class="text-lg font-semibold text-gray-800 mb-6">Registrar Nueva Materia Prima</h3>
+  
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+    
+    <!-- Nombre -->
+    <div>
+      <label for="nombre" class="block text-sm font-medium text-gray-700 mb-1">
+        Nombre de la materia prima
+      </label>
+      <input 
+        type="text"
+        id="nombre"
+        formControlName="nombre" 
+        placeholder="Ej: ESP32-WROOM-32"
+        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-200"
+        [class.border-red-500]="form.get('nombre')?.invalid && form.get('nombre')?.touched"
+        [class.focus:ring-red-500]="form.get('nombre')?.invalid && form.get('nombre')?.touched"
+      >
+      <div *ngIf="form.get('nombre')?.hasError('required') && form.get('nombre')?.touched" 
+           class="text-red-600 text-sm mt-1">
+        El nombre es requerido
+      </div>
+      <div *ngIf="form.get('nombre')?.hasError('minlength') && form.get('nombre')?.touched" 
+           class="text-red-600 text-sm mt-1">
+        Mínimo 3 caracteres
+      </div>
+    </div>
+
+    <!-- Unidad de medida -->
+    <div>
+      <label for="unidad" class="block text-sm font-medium text-gray-700 mb-1">
+        Unidad de medida
+      </label>
+      <select 
+        id="unidad"
+        formControlName="unidad"
+        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-200 bg-white"
+        [class.border-red-500]="form.get('unidad')?.invalid && form.get('unidad')?.touched"
+        [class.focus:ring-red-500]="form.get('unidad')?.invalid && form.get('unidad')?.touched"
+      >
+        <option value="" disabled>Selecciona una unidad</option>
+        <option *ngFor="let unidad of unidades" [value]="unidad">{{unidad}}</option>
+      </select>
+      <div *ngIf="form.get('unidad')?.hasError('required') && form.get('unidad')?.touched" 
+           class="text-red-600 text-sm mt-1">
+        Selecciona una unidad de medida
+      </div>
+    </div>
+
+    <!-- Porcentaje de ganancia -->
+    <div>
+      <label for="porcentajeGanancia" class="block text-sm font-medium text-gray-700 mb-1">
+        Porcentaje de ganancia
+      </label>
+      <div class="relative">
+        <input 
+          type="number"
+          id="porcentajeGanancia"
+          formControlName="porcentajeGanancia"
+          min="0"
+          step="1"
+          placeholder="25"
+          class="w-full px-3 py-2 pr-8 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition duration-200"
+          [class.border-red-500]="form.get('porcentajeGanancia')?.invalid && form.get('porcentajeGanancia')?.touched"
+          [class.focus:ring-red-500]="form.get('porcentajeGanancia')?.invalid && form.get('porcentajeGanancia')?.touched"
+        >
+        <span class="absolute right-3 top-2 text-gray-500 text-sm">%</span>
+      </div>
+      <div *ngIf="form.get('porcentajeGanancia')?.hasError('required') && form.get('porcentajeGanancia')?.touched" 
+           class="text-red-600 text-sm mt-1">
+        El porcentaje es requerido
+      </div>
+      <div *ngIf="form.get('porcentajeGanancia')?.hasError('min') && form.get('porcentajeGanancia')?.touched" 
+           class="text-red-600 text-sm mt-1">
+        El valor mínimo es 0
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="pt-2">
+      <button 
+        type="submit"
+        class="w-full px-4 py-3 bg-purple-500 text-white font-medium rounded-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition duration-200 disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        [disabled]="form.invalid || isLoading"
+      >
+        <svg *ngIf="!isLoading" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+        </svg>
+        <div *ngIf="isLoading" class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+        {{ isLoading ? 'Guardando...' : 'Guardar Materia Prima' }}
+      </button>
+    </div>
+  </form>
+</div>

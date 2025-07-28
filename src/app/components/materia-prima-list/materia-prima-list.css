@@ -1,0 +1,26 @@
+/* components/materia-prima-list/materia-prima-list.css */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-acciones {
+  width: 110px;
+  text-align: center;
+}
+
+.mat-column-costoPromedio, 
+.mat-column-porcentajeGanancia,
+.mat-column-existencia {
+  text-align: right;
+  padding-right: 1rem;
+}
+
+button[mat-icon-button] {
+  margin: 0 4px;
+}

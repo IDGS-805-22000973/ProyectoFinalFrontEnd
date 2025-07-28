@@ -1,0 +1,41 @@
+.compra-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.detalles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.detalle-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.detalle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.detalle-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+}

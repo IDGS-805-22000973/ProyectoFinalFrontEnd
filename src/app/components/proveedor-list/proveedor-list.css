@@ -1,0 +1,21 @@
+/* proveedor-list.css */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.no-results {
+  text-align: center;
+  color: #666;
+  margin: 1rem 0;
+}
+
+.mat-column-acciones {
+  width: 120px;
+  text-align: center;
+}
+
+button[mat-icon-button] {
+  margin: 0 4px;
+}

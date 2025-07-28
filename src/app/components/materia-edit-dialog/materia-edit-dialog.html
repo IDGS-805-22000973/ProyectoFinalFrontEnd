@@ -1,0 +1,47 @@
+<!-- components/materia-edit-dialog/materia-edit-dialog.html -->
+<h2 mat-dialog-title>Editar Materia Prima</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="editForm">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombre*</mat-label>
+      <input matInput formControlName="nombre">
+      <mat-error *ngIf="editForm.get('nombre')?.hasError('required')">
+        Nombre es requerido
+      </mat-error>
+      <mat-error *ngIf="editForm.get('nombre')?.hasError('minlength')">
+        Mínimo 3 caracteres
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Unidad de medida*</mat-label>
+      <mat-select formControlName="unidad">
+        <mat-option *ngFor="let unidad of unidades" [value]="unidad">
+          {{unidad}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Porcentaje de ganancia*</mat-label>
+      <input matInput type="number" formControlName="porcentajeGanancia" min="0" step="1">
+      <span matSuffix>%</span>
+      <mat-error *ngIf="editForm.get('porcentajeGanancia')?.hasError('required')">
+        El porcentaje es requerido
+      </mat-error>
+      <mat-error *ngIf="editForm.get('porcentajeGanancia')?.hasError('min')">
+        El valor mínimo es 0
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-raised-button color="primary" 
+          [disabled]="editForm.invalid"
+          [mat-dialog-close]="editForm.value">
+    Guardar
+  </button>
+</mat-dialog-actions>

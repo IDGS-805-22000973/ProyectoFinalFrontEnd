@@ -1,0 +1,85 @@
+<!-- pages/usuarios/usuarios.html -->
+<div class="min-h-screen bg-gray-50 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header Principal -->
+    <div class="mb-8">
+      <div class="bg-white shadow-sm border border-gray-200 rounded-lg p-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Administración de Usuarios</h1>
+            <p class="text-gray-600 text-lg">Gestiona los usuarios del sistema, crea nuevos perfiles y administra roles</p>
+          </div>
+          <div class="hidden md:block">
+            <div class="flex items-center text-gray-500">
+              <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+              <span class="text-sm font-medium">Panel de Control</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout de dos columnas -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Sección de formulario -->
+      <div class="lg:col-span-1">
+        <div class="bg-white shadow-sm border border-gray-200 rounded-lg overflow-hidden sticky top-8">
+          <div class="bg-gradient-to-r from-green-50 to-emerald-50 border-b border-gray-200 px-6 py-4">
+            <div class="flex items-center">
+              <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+              <h2 class="text-xl font-semibold text-gray-800">Crear Nuevo Usuario</h2>
+            </div>
+            <p class="text-sm text-gray-600 mt-1">Complete el formulario para añadir un usuario</p>
+          </div>
+          
+          <div class="p-6">
+            <app-user-form (usuarioCreado)="refreshList()"></app-user-form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de lista -->
+      <div class="lg:col-span-2">
+        <div class="bg-white shadow-sm border border-gray-200 rounded-lg overflow-hidden">
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-gray-200 px-6 py-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+                <h2 class="text-xl font-semibold text-gray-800">Usuarios Registrados</h2>
+              </div>
+              <div class="flex items-center text-gray-500">
+
+                
+              </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-1">Visualiza, edita y gestiona todos los usuarios del sistema</p>
+          </div>
+          
+          <div class="p-0">
+            <app-user-list></app-user-list>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer informativo -->
+    <div class="mt-8 text-center">
+      <div class="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full shadow-sm">
+        <svg class="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span class="text-sm text-gray-600">Los cambios se guardan automáticamente</span>
+      </div>
+    </div>
+
+  </div>
+</div>

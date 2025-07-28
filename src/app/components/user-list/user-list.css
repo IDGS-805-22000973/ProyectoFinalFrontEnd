@@ -1,0 +1,24 @@
+/* components/user-list/user-list.css */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+table {
+  width: 100%;
+}
+
+.role-badge {
+  background: #e0e0e0;
+  border-radius: 12px;
+  padding: 2px 8px;
+  margin-right: 4px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+.mat-column-acciones {
+  width: 80px;
+  text-align: center;
+}

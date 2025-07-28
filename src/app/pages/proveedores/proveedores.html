@@ -1,0 +1,87 @@
+<!-- pages/proveedores/proveedores.html -->
+<div class="min-h-screen bg-gray-50 py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header Principal -->
+    <div class="mb-8">
+      <div class="bg-white shadow-sm border border-gray-200 rounded-lg p-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Gestión de Proveedores</h1>
+            <p class="text-gray-600 text-lg">Administra proveedores, registra nuevas empresas y mantén actualizada la información de contacto</p>
+          </div>
+          <div class="hidden md:block">
+            <div class="flex items-center text-gray-500">
+              <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+              <span class="text-sm font-medium">Centro de Proveedores</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout de dos columnas -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Sección de formulario -->
+      <div class="lg:col-span-1">
+        <div class="bg-white shadow-sm border border-gray-200 rounded-lg overflow-hidden sticky top-8">
+          <div class="bg-gradient-to-r from-orange-50 to-amber-50 border-b border-gray-200 px-6 py-4">
+            <div class="flex items-center">
+              <svg class="w-5 h-5 text-orange-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+              <h2 class="text-xl font-semibold text-gray-800">Registrar Proveedor</h2>
+            </div>
+            <p class="text-sm text-gray-600 mt-1">Complete la información del nuevo proveedor</p>
+          </div>
+          
+          <div class="p-6">
+            <app-proveedor-form (proveedorCreado)="onProveedorCreado()"></app-proveedor-form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de lista -->
+      <div class="lg:col-span-2">
+        <div class="bg-white shadow-sm border border-gray-200 rounded-lg overflow-hidden">
+          <div class="bg-gradient-to-r from-slate-50 to-gray-50 border-b border-gray-200 px-6 py-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <svg class="w-5 h-5 text-slate-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+                <h2 class="text-xl font-semibold text-gray-800">Proveedores Registrados</h2>
+              </div>
+              <div class="flex items-center text-gray-500">
+                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span class="text-sm font-medium">Directorio</span>
+              </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-1">Consulta, edita y administra la información de todos los proveedores</p>
+          </div>
+          
+          <div class="p-0">
+            <app-proveedor-list [refreshTrigger]="refreshList$"></app-proveedor-list>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer informativo -->
+    <div class="mt-8 text-center">
+      <div class="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-full shadow-sm">
+        <svg class="w-4 h-4 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span class="text-sm text-gray-600">Información sincronizada automáticamente</span>
+      </div>
+    </div>
+
+  </div>
+</div>
