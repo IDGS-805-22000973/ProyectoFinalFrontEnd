@@ -1,0 +1,57 @@
+/* src/app/components/cliente-comentario/cliente-comentario.component.css */
+
+.comentarios-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.nuevo-comentario {
+  margin-bottom: 20px;
+}
+
+.nuevo-comentario textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.comentarios-list {
+  margin-top: 20px;
+}
+
+.comentario-item {
+  background: #f9f9f9;
+  border-left: 4px solid #4CAF50;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 0 4px 4px 0;
+}
+
+.comentario-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.comentario-texto {
+  white-space: pre-line;
+}
+
+.error-message {
+  color: #f44336;
+  padding: 10px;
+  background: #ffebee;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.loading, .no-comentarios {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}

@@ -1,18 +1,19 @@
 // components/user-list/user-list.ts
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { UsuariosService } from '../../services/usuarios';
 import { UsuarioResponse } from '../../interfaces/usuario-response';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { UsuarioEditDialog } from '../usuario-edit-dialog/usuario-edit-dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-list',
@@ -24,16 +25,23 @@ import { UsuarioEditDialog } from '../usuario-edit-dialog/usuario-edit-dialog';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    FormsModule
   ],
   templateUrl: './user-list.html',
   styleUrls: ['./user-list.css']
 })
 export class UserList {
   @Input() refreshTrigger?: Observable<void>;
+
   usuarios: UsuarioResponse[] = [];
+  usuariosFiltrados: UsuarioResponse[] = [];
+
   isLoading = true;
   displayedColumns: string[] = ['nombre', 'email', 'roles', 'acciones'];
+
+  filtroRol: string = '';
 
   constructor(
     private usuariosService: UsuariosService,
@@ -43,6 +51,9 @@ export class UserList {
 
   ngOnInit(): void {
     this.loadUsuarios();
+    if (this.refreshTrigger) {
+      this.refreshTrigger.subscribe(() => this.loadUsuarios());
+    }
   }
 
   loadUsuarios(): void {
@@ -50,6 +61,7 @@ export class UserList {
     this.usuariosService.getAllUsuarios().subscribe({
       next: (data) => {
         this.usuarios = data;
+        this.aplicarFiltro(); // Aplicar el filtro actual al cargar
         this.isLoading = false;
       },
       error: (err) => {
@@ -57,6 +69,16 @@ export class UserList {
         this.isLoading = false;
       }
     });
+  }
+
+  aplicarFiltro(): void {
+    if (!this.filtroRol) {
+      this.usuariosFiltrados = [...this.usuarios];
+    } else {
+      this.usuariosFiltrados = this.usuarios.filter(user =>
+        user.roles.includes(this.filtroRol)
+      );
+    }
   }
 
   eliminarUsuario(id: string): void {
@@ -74,7 +96,7 @@ export class UserList {
             this.snackBar.open('Usuario eliminado correctamente', 'Cerrar', {
               duration: 3000
             });
-            this.loadUsuarios(); // Recargar la lista
+            this.loadUsuarios();
           },
           error: (err) => {
             console.error('Error al eliminar usuario:', err);
@@ -86,13 +108,6 @@ export class UserList {
       }
     });
   }
-
-  ngOnChanges() {
-    if (this.refreshTrigger) {
-      this.refreshTrigger.subscribe(() => this.loadUsuarios());
-    }
-  }
-
 
   editarUsuario(usuario: UsuarioResponse): void {
     const dialogRef = this.dialog.open(UsuarioEditDialog, {
@@ -108,14 +123,12 @@ export class UserList {
   }
 
   private actualizarUsuario(id: string, data: any): void {
-    // Actualizar datos básicos
     this.usuariosService.actualizarUsuario({
       id,
       nombre: data.nombre,
       email: data.email
     }).subscribe({
       next: () => {
-        // Actualizar rol si cambió
         if (data.rol !== this.usuarios.find(u => u.id === id)?.roles[0]) {
           this.usuariosService.cambiarRol({
             userId: id,

@@ -1,11 +1,11 @@
 <div class="dashboard-container">
-  <h1>Dashboard de Compras</h1>
+  <h1 class="text-2xl font-semibold text-gray-900">Dashboard General</h1>
   
   @if (isLoading) {
     <mat-spinner></mat-spinner>
   } @else {
     <div class="grid-container">
-      <!-- Tarjeta de Resumen -->
+      <!-- Tarjeta de Compras -->
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -16,6 +16,48 @@
         <mat-card-content>
           <div class="card-value">{{totalComprasUltimoMes | currency}}</div>
           <div class="card-subtitle">Total acumulado</div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Tarjeta de Ventas -->
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>attach_money</mat-icon>
+            Ventas del Mes
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="card-value">{{totalVentasMes | currency}}</div>
+          <div class="card-subtitle">Total acumulado</div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Tarjeta de Ventas Hoy -->
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>today</mat-icon>
+            Ventas Hoy
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="card-value">{{ventasHoy}}</div>
+          <div class="card-subtitle">Transacciones</div>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Tarjeta de Promedio Venta -->
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>trending_up</mat-icon>
+            Promedio Venta
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="card-value">{{promedioVenta | currency}}</div>
+          <div class="card-subtitle">Por transacción</div>
         </mat-card-content>
       </mat-card>
 

@@ -7,10 +7,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { Footer } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatButtonModule, Navbar, Home, MatDialogModule, MatSnackBarModule, MatIconModule],
+  imports: [RouterOutlet, MatButtonModule, Navbar, Home, MatDialogModule, MatSnackBarModule, MatIconModule, Footer],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

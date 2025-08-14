@@ -42,7 +42,6 @@ export class ProductoFormComponent {
     this.productoForm = this.fb.group({
       nombre: ['', [Validators.required, Validators.maxLength(100)]],
       descripcion: ['', Validators.maxLength(255)],
-      precioVenta: ['', [Validators.required, Validators.min(0.01)]],
       componentes: this.fb.array([this.crearComponenteFormGroup()])
     });
 
@@ -80,7 +79,7 @@ export class ProductoFormComponent {
   onSubmit(): void {
     if (this.productoForm.valid) {
       const productoDto: CrearProductoDto = this.productoForm.value;
-      
+
       this.productoService.crearProducto(productoDto).subscribe({
         next: (response) => {
           this.snackBar.open('Producto creado exitosamente', 'Cerrar', { duration: 3000 });
@@ -99,4 +98,26 @@ export class ProductoFormComponent {
       });
     }
   }
+
+
+  selectedFile: File | null = null;
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+    if (file && file.type === 'application/pdf') {
+      this.selectedFile = file;
+      // Aquí puedes manejar el archivo, como subirlo o asignarlo a tu formulario
+       this.productoForm.patchValue({ documentacion: file });
+    } else {
+      // Manejar error de tipo de archivo
+    }
+  }
+
+  removeFile() {
+    this.selectedFile = null;
+    // Limpiar el valor en el formulario si es necesario
+    // this.productoForm.patchValue({ documentacion: null });
+  }
+
+
 }

@@ -1,0 +1,79 @@
+<div class="max-w-4xl mx-auto p-6">
+  <h2 class="text-2xl font-semibold text-gray-900 mb-6">Mis Comentarios</h2>
+  
+  <!-- Formulario para nuevo comentario -->
+  <div class="border p-6 mb-8 rounded-lg shadow-sm bg-white" 
+       style="border-color: #222F44;">
+    <h3 class="text-lg font-medium text-gray-900 mb-4">Agregar nuevo comentario</h3>
+    <textarea 
+      [(ngModel)]="nuevoComentario.texto" 
+      placeholder="Escribe tu comentario aquí..."
+      rows="3"
+      class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:border-transparent resize-none mb-4"
+      style="--tw-ring-color: #222F44; --tw-ring-opacity: 0.5;"
+    ></textarea>
+    <div class="flex justify-end">
+      <button (click)="agregarComentario()" 
+              [disabled]="cargando || !nuevoComentario.texto.trim()"
+              class="px-6 py-2 text-white rounded font-medium hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              style="background-color: #222F44;">
+        {{ cargando ? 'Enviando...' : 'Enviar Comentario' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="error" class="bg-red-50 border-l-4 border-red-400 p-4 mb-6 rounded-r-lg">
+    <div class="flex">
+      <div class="flex-shrink-0">
+        <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+        </svg>
+      </div>
+      <div class="ml-3">
+        <p class="text-sm text-red-700">{{ error }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lista de comentarios -->
+  <div *ngIf="cargando && comentarios.length === 0" class="text-center py-12 text-gray-600">
+    <svg class="animate-spin mx-auto w-8 h-8 mb-4" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+    Cargando comentarios...
+  </div>
+
+  <div *ngIf="comentarios.length === 0 && !cargando" class="text-center py-12">
+    <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center"
+         style="background-color: #f0fdff;">
+      <svg class="w-8 h-8" style="color: #222F44;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+      </svg>
+    </div>
+    <p class="text-gray-600 font-medium">No tienes comentarios aún.</p>
+    <p class="text-gray-500 text-sm mt-2">¡Comparte tu opinión y sé el primero en comentar!</p>
+  </div>
+
+  <div class="space-y-4">
+    <div *ngFor="let comentario of comentarios" 
+         class="bg-white border-l-4 p-6 rounded-r-lg shadow-sm"
+         style="border-left-color: #222F44;">
+      <div class="flex justify-between items-start mb-3">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+               style="background-color: #222F44;">
+            {{ comentario.usuarioNombre}}
+          </div>
+          <div>
+            <span class="font-semibold text-gray-900">{{ comentario.usuarioNombre }}</span>
+            <p class="text-sm text-gray-500">{{ comentario.fechaCreacion | date:'medium' }}</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-gray-700 whitespace-pre-line">{{ comentario.texto }}</div>
+    </div>
+  </div>
+</div>

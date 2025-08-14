@@ -2,67 +2,62 @@
   padding: 20px;
 }
 
-h1 {
-  margin-bottom: 24px;
-  color: #3f51b5;
-  font-weight: 500;
-}
-
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+  margin-top: 20px;
 }
 
 .dashboard-card {
-  padding: 16px;
   height: 100%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
 }
 
-.card-value {
-  font-size: 2.5rem;
-  font-weight: 500;
-  margin: 10px 0;
-  color: #3f51b5;
+.dashboard-card:hover {
+  transform: translateY(-5px);
 }
 
-.card-subtitle {
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 0.9rem;
-}
-
-.chart-card {
+.chart-card, .table-card {
   grid-column: span 2;
 }
 
-.table-card {
-  grid-column: span 3;
+.card-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3f51b5;
+  margin: 10px 0;
 }
 
-recent-table {
+.card-subtitle {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.recent-table {
   width: 100%;
 }
 
-mat-icon {
-  vertical-align: middle;
-  margin-right: 8px;
-  color: #3f51b5;
+mat-spinner {
+  margin: 50px auto;
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-  .chart-card, .table-card {
-    grid-column: span 1;
-  }
+/* Estilos específicos para el gráfico */
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
 }
 
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
+/* Colores diferenciados para ventas */
+.dashboard-card:nth-child(2) .card-value {
+  color: #4CAF50; /* Verde para ventas */
 }
 
-canvas {
-  max-height: 400px;
+.dashboard-card:nth-child(3) .card-value {
+  color: #FF9800; /* Naranja para ventas hoy */
+}
+
+.dashboard-card:nth-child(4) .card-value {
+  color: #9C27B0; /* Púrpura para promedio */
 }

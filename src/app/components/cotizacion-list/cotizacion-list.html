@@ -1,0 +1,56 @@
+<div class="container mx-auto px-4 py-8">
+  <h2 class="text-2xl font-bold text-gray-800 mb-6">Listado de Cotizaciones</h2>
+  
+  <div *ngIf="isLoading" class="text-center py-8">
+    <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-primary"></div>
+    <p class="mt-2 text-gray-600">Cargando cotizaciones...</p>
+  </div>
+
+  <div *ngIf="!isLoading && cotizaciones.length === 0" class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+    <p class="text-blue-700">No se encontraron cotizaciones registradas.</p>
+  </div>
+
+  <div *ngIf="!isLoading && cotizaciones.length > 0" class="overflow-x-auto">
+    <table class="min-w-full bg-white rounded-lg overflow-hidden">
+      <thead class="bg-gray-100 text-gray-700">
+        <tr>
+          <th class="py-3 px-4 text-left">ID</th>
+          <th class="py-3 px-4 text-left">Cliente</th>
+          <th class="py-3 px-4 text-left">Contacto</th>
+          <th class="py-3 px-4 text-left">Total</th>
+          <th class="py-3 px-4 text-left">Productos</th>
+          <th class="py-3 px-4 text-left">Estado</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <tr *ngFor="let cotizacion of cotizaciones" class="hover:bg-gray-50">
+          <td class="py-4 px-4">{{cotizacion.id}}</td>
+          <td class="py-4 px-4">
+            <div class="font-medium">{{cotizacion.nombreCompleto}}</div>
+            <div class="text-sm text-gray-500">{{cotizacion.empresa || 'Sin empresa'}}</div>
+          </td>
+          <td class="py-4 px-4">
+            <div>{{cotizacion.email}}</div>
+            <div class="text-sm text-gray-500">{{cotizacion.telefono}}</div>
+          </td>
+
+          <td class="py-4 px-4">{{cotizacion.total | currency}}</td>
+          <td class="py-4 px-4">
+            <div *ngFor="let producto of cotizacion.productos" class="text-sm">
+              {{producto.nombreProducto}} (x{{producto.cantidad}})
+            </div>
+          </td>
+          <td class="py-4 px-4">
+            <span [ngClass]="{
+              'bg-green-100 text-green-800': calcularEstado(cotizacion) === 'Aprobada',
+              'bg-yellow-100 text-yellow-800': calcularEstado(cotizacion) === 'Pendiente',
+              'bg-red-100 text-red-800': calcularEstado(cotizacion) === 'Rechazada'
+            }" class="px-3 py-1 rounded-full text-sm">
+              {{calcularEstado(cotizacion)}}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

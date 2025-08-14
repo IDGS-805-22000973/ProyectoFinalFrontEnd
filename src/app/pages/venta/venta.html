@@ -1,0 +1,30 @@
+<div class="min-h-screen bg-gray-50 py-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-6 p-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 class="text-2xl font-semibold text-gray-900">Gestión de Ventas</h1>
+          <p class="text-sm text-gray-600 mt-1">Administra las ventas realizadas y registra nuevas transacciones</p>
+        </div>
+        
+        <button 
+          mat-raised-button 
+          color="primary" 
+          (click)="openVentaForm()"
+          class="flex items-center gap-2 px-6 py-2 bg-purple-500 text-white font-medium rounded-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition duration-200 self-start sm:self-auto">
+          <mat-icon>add</mat-icon>
+          Nueva Venta
+        </button>
+      </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="space-y-6">
+      <!-- Componente de lista de ventas -->
+      <app-venta-list></app-venta-list>
+    </div>
+    
+  </div>
+</div>

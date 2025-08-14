@@ -1,0 +1,88 @@
+<div class="max-w-6xl mx-auto p-6">
+  <h2 class="text-2xl font-semibold text-gray-900 mb-6">Administración de Comentarios</h2>
+
+  <!-- Mensaje de error -->
+  <div *ngIf="error" class="bg-red-50 border-l-4 border-red-400 p-4 mb-6 rounded-r-lg">
+    <div class="flex">
+      <div class="flex-shrink-0">
+        <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+        </svg>
+      </div>
+      <div class="ml-3">
+        <p class="text-sm text-red-700">{{ error }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lista de comentarios -->
+  <div *ngIf="cargando && comentarios.length === 0" class="text-center py-12 text-gray-600">
+    <svg class="animate-spin mx-auto w-8 h-8 mb-4" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+    Cargando comentarios...
+  </div>
+
+  <div class="space-y-4">
+    <div *ngFor="let comentario of comentarios" 
+         class="bg-white border-l-4 p-6 rounded-r-lg shadow-sm transition-all"
+         [class.border-cyan-400]="comentarioSeleccionado?.id !== comentario.id"
+         [class.border-cyan-500]="comentarioSeleccionado?.id === comentario.id"
+         [class.bg-cyan-50]="comentarioSeleccionado?.id === comentario.id"
+         style="border-left-color: #5DCED4;"
+         [style.border-left-color]="comentarioSeleccionado?.id === comentario.id ? '#5DCED4' : '#5DCED4'"
+         [style.background-color]="comentarioSeleccionado?.id === comentario.id ? '#f0fdff' : '#ffffff'">
+      
+      <div class="flex justify-between items-start mb-3">
+        <span class="font-semibold text-gray-900">{{ comentario.usuarioNombre }}</span>
+        <span class="text-sm text-gray-500">{{ comentario.fechaCreacion | date:'medium' }}</span>
+        <button class="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 transition-colors"
+                (click)="eliminarComentario(comentario.id)" 
+                [disabled]="cargando">
+          Eliminar
+        </button>
+      </div>
+      
+      <div class="text-gray-700 mb-4 whitespace-pre-line">{{ comentario.texto }}</div>
+
+      <!-- Respuesta existente -->
+      <div *ngIf="comentario.respuesta" class="border-l-4 p-4 mb-4 rounded-r" 
+           style="background-color: #f0fdff; border-left-color: #5DCED4;">
+        <div class="flex justify-between items-center mb-2 text-sm">
+          <span class="font-semibold" style="color: #0891b2;">Admin: {{ comentario.adminRespuestaNombre }}</span>
+          <span class="text-gray-500">{{ comentario.fechaRespuesta | date:'medium' }}</span>
+        </div>
+        <div class="text-gray-700 whitespace-pre-line">{{ comentario.respuesta }}</div>
+      </div>
+
+      <!-- Botón para responder/editar -->
+      <button class="text-white px-4 py-2 rounded text-sm font-medium hover:opacity-90 transition-colors"
+              style="background-color: #5DCED4;"
+              (click)="seleccionarComentario(comentario)">
+        {{ comentario.respuesta ? 'Editar respuesta' : 'Responder' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Formulario de respuesta -->
+  <div *ngIf="comentarioSeleccionado" class="bg-blue-50 border border-blue-200 p-6 mt-8 rounded-lg">
+    <h3 class="text-lg font-semibold text-gray-900 mb-4">Responder a {{ comentarioSeleccionado.usuarioNombre }}</h3>
+    <textarea [(ngModel)]="respuesta" 
+              placeholder="Escribe tu respuesta aquí..." 
+              rows="4"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 resize-none">
+    </textarea>
+    <div class="flex justify-end gap-3 mt-4">
+      <button (click)="comentarioSeleccionado = null"
+              class="px-4 py-2 text-gray-600 bg-gray-100 rounded hover:bg-gray-200 transition-colors">
+        Cancelar
+      </button>
+      <button (click)="enviarRespuesta()" 
+              [disabled]="cargando || !respuesta.trim()"
+              class="px-4 py-2 bg-green-600 text-white rounded font-medium hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+        {{ cargando ? 'Enviando...' : 'Enviar Respuesta' }}
+      </button>
+    </div>
+  </div>
+</div>

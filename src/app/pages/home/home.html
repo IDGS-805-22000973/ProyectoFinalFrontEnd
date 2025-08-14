@@ -1,431 +1,566 @@
-<!-- Hero Section -->
-<section class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-20">
-  <div class="container mx-auto px-6 text-center">
-    <h1 class="text-5xl font-bold mb-6">Water Life</h1>
-    <p class="text-xl mb-8 max-w-3xl mx-auto">
-      Soluciones tecnológicas innovadoras para problemas ecológicos. 
-      Comprometidos con el cuidado del medio ambiente a través de la tecnología.
-    </p>
-    <button class="bg-[#0FF4BC] hover:bg-[#0EE43B] text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
-      Solicitar Cotización
-    </button>
-  </div>
-</section>
+<!DOCTYPE html>
+<html lang="es">
 
-<!-- Información de la Empresa -->
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-gray-800 mb-4">Acerca de Water Life</h2>
-      <div class="w-24 h-1 bg-cyan-500 mx-auto mb-8"></div>
-    </div>
-    
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Nuestra Misión</h3>
-        <p class="text-gray-600 mb-6 leading-relaxed">
-          En Water Life, nos dedicamos a desarrollar soluciones tecnológicas avanzadas que 
-          abordan los desafíos ecológicos más críticos de nuestro tiempo. Creemos que la 
-          innovación y la sostenibilidad van de la mano para crear un futuro mejor.
-        </p>
-        <p class="text-gray-600 mb-6 leading-relaxed">
-          Nuestra empresa combina expertise técnico con conciencia ambiental, ofreciendo 
-          productos y servicios que no solo resuelven problemas, sino que también contribuyen 
-          a la preservación de nuestro planeta.
-        </p>
-        <div class="flex space-x-8">
-          <div class="text-center">
-            <div class="text-3xl font-bold text-cyan-500">10+</div>
-            <div class="text-sm text-gray-600">Años de Experiencia</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-cyan-500">500+</div>
-            <div class="text-sm text-gray-600">Proyectos Completados</div>
-          </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-cyan-500">95%</div>
-            <div class="text-sm text-gray-600">Satisfacción Cliente</div>
-          </div>
-        </div>
-      </div>
-      <div class="relative">
-        <div class="bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg p-8 text-white">
-          <h4 class="text-xl font-semibold mb-4">Nuestros Valores</h4>
-          <ul class="space-y-3">
-            <li class="flex items-center">
-              <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-              Innovación Sostenible
-            </li>
-            <li class="flex items-center">
-              <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-              Compromiso Ecológico
-            </li>
-            <li class="flex items-center">
-              <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-              Excelencia Tecnológica
-            </li>
-            <li class="flex items-center">
-              <span class="w-2 h-2 bg-white rounded-full mr-3"></span>
-              Responsabilidad Social
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water-Life - Soluciones Ecológicas Innovadoras</title>
 
-<!-- Productos y Servicios -->
-<section class="py-16 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-gray-800 mb-4">Nuestros Productos</h2>
-      <div class="w-24 h-1 bg-cyan-500 mx-auto mb-8"></div>
-      <p class="text-gray-600 max-w-2xl mx-auto">
-        Descubre nuestras soluciones tecnológicas diseñadas para abordar los desafíos ecológicos más importantes.
-      </p>
-    </div>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-        <div class="h-48 bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center">
-          <div class="text-white text-6xl">💧</div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-3 text-gray-800">Sistema de Purificación Inteligente</h3>
-          <p class="text-gray-600 mb-4">
-            Tecnología avanzada de purificación de agua con monitoreo en tiempo real y 
-            análisis predictivo para optimizar la calidad del agua.
-          </p>
-          <div class="flex justify-between items-center">
-            <button class="text-cyan-500 hover:text-cyan-600 font-semibold">Ver Detalles</button>
-            <button class="bg-[#0FF4BC] hover:bg-[#0EE43B] text-white px-4 py-2 rounded transition duration-300">
-              Cotizar
-            </button>
-          </div>
-        </div>
-      </div>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#173A53',
+                        'secondary': '#4BCACF',
+                        'eco-green': '#7ED321',
+                        'light-green': '#A8E6CF'
+                    },
+                    boxShadow: {
+                        'glow': '0 0 20px rgba(75, 202, 207, 0.6)',
+                        'soft': '0 4px 20px rgba(0,0,0,0.1)'
+                    }
+                }
+            }
+        }
+    </script>
 
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-        <div class="h-48 bg-gradient-to-r from-green-400 to-cyan-500 flex items-center justify-center">
-          <div class="text-white text-6xl">🌱</div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-3 text-gray-800">Monitor Ambiental IoT</h3>
-          <p class="text-gray-600 mb-4">
-            Sensores inteligentes para monitoreo continuo de parámetros ambientales 
-            con alertas automáticas y análisis de tendencias.
-          </p>
-          <div class="flex justify-between items-center">
-            <button class="text-cyan-500 hover:text-cyan-600 font-semibold">Ver Detalles</button>
-            <button class="bg-[#0FF4BC] hover:bg-[#0EE43B] text-white px-4 py-2 rounded transition duration-300">
-              Cotizar
-            </button>
-          </div>
-        </div>
-      </div>
+    <style>
+        @keyframes float {
 
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition duration-300">
-        <div class="h-48 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center">
-          <div class="text-white text-6xl">⚡</div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-3 text-gray-800">Gestión Energética Sustentable</h3>
-          <p class="text-gray-600 mb-4">
-            Plataforma de gestión inteligente de energía renovable con optimización 
-            automática y reducción de huella de carbono.
-          </p>
-          <div class="flex justify-between items-center">
-            <button class="text-cyan-500 hover:text-cyan-600 font-semibold">Ver Detalles</button>
-            <button class="bg-[#0FF4BC] hover:bg-[#0EE43B] text-white px-4 py-2 rounded transition duration-300">
-              Cotizar
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
 
-    <!-- Demo Section -->
-    <div class="mt-16 bg-white rounded-lg shadow-lg p-8">
-      <h3 class="text-2xl font-semibold text-center mb-8 text-gray-800">
-        Demostraciones y Documentación
-      </h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="bg-gray-100 rounded-lg p-8 mb-4 hover:bg-gray-200 transition duration-300 cursor-pointer">
-            <div class="text-4xl mb-4">📹</div>
-            <h4 class="font-semibold text-gray-800">Videos Demostrativos</h4>
-            <p class="text-gray-600 text-sm mt-2">
-              Observa nuestros sistemas en funcionamiento
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.33);
+                opacity: 1;
+            }
+
+            80%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 1.5s ease-out infinite;
+        }
+
+        /* Fondo con patrón más suave y elegante */
+        .bg-pattern {
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(75, 202, 207, 0.15) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(126, 211, 33, 0.15) 2px, transparent 2px);
+            background-size: 60px 60px;
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+
+
+<body class="overflow-x-hidden">
+
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-br from-primary via-primary/95 to-primary/90 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-pattern opacity-5"></div>
+
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-secondary/10 rounded-full blur-xl float"></div>
+        <div class="absolute bottom-32 right-16 w-24 h-24 bg-eco-green/10 rounded-full blur-lg float"
+            style="animation-delay: -2s;"></div>
+        <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-light-green/10 rounded-full blur-md float"
+            style="animation-delay: -4s;"></div>
+
+        <!-- Main Content -->
+        <div class="relative z-10 container mx-auto px-6 pt-32 pb-20">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left Content -->
+                <div class="space-y-8">
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center bg-secondary/10 border border-secondary/30 rounded-full px-6 py-3">
+                        <div class="w-3 h-3 bg-eco-green rounded-full mr-3 animate-pulse"></div>
+                        <span class="text-secondary font-semibold text-sm uppercase tracking-wide">Innovación
+                            Ecológica</span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="text-6xl lg:text-7xl font-bold text-secondary leading-tight">
+                        Water-Life
+                        <span class="block text-4xl lg:text-5xl text-light-green mt-2">
+                            Soluciones del Futuro
+                        </span>
+                    </h1>
+
+                    <!-- Description -->
+                    <p class="text-xl text-secondary/80 leading-relaxed max-w-lg">
+                        Soluciones tecnológicas innovadoras para problemas ecológicos.
+                        <span class="text-eco-green font-semibold">Comprometidos con el cuidado del medio
+                            ambiente</span>
+                        a través de la tecnología.
+                    </p>
+
+                    <!-- Features -->
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 bg-eco-green rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span class="text-secondary font-medium">Tecnología Sostenible</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 bg-light-green rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span class="text-secondary font-medium">Impacto Ambiental Positivo</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <span class="text-secondary font-medium">Soluciones Integrales</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-8">
+                        <button
+                            class="bg-secondary hover:bg-secondary/90 text-primary px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                            </svg>
+                            <span><a routerLink="/cotizacion">Solicitar Cotización</a></span>
+                        </button>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-8">
+                        <div class="flex justify-center">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/p38WgakuYDo"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen class="rounded-xl shadow-lg">
+                            </iframe>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Visual -->
+                <div class="relative">
+                    <!-- Main Circle -->
+                    <div class="relative w-96 h-96 mx-auto">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-secondary to-light-green rounded-full shadow-2xl">
+                        </div>
+                        <div class="absolute inset-4 bg-primary/20 rounded-full backdrop-blur-sm"></div>
+                        <div
+                            class="absolute inset-8 bg-gradient-to-br from-eco-green/30 to-secondary/30 rounded-full flex items-center justify-center">
+                            <img src="/assets/images/logo.jpg" alt="Logo" class="w-32 h-32 rounded-full object-cover">
+                        </div>
+
+
+                        <!-- Floating Elements -->
+                        <div
+                            class="absolute -top-8 -right-8 w-16 h-16 bg-eco-green rounded-full flex items-center justify-center shadow-lg float">
+                            <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+
+                        <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-light-green rounded-full flex items-center justify-center shadow-lg float"
+                            style="animation-delay: -3s;">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+
+                        <div class="absolute top-1/2 -right-12 w-20 h-20 bg-secondary/20 rounded-full flex items-center justify-center backdrop-blur-sm float"
+                            style="animation-delay: -1s;">
+                            <svg class="w-10 h-10 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path
+                                    d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Pulse Rings -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-96 h-96 rounded-full border-2 border-secondary/30 pulse-ring"></div>
+                        <div class="absolute w-96 h-96 rounded-full border-2 border-eco-green/30 pulse-ring"
+                            style="animation-delay: 0.5s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Wave -->
+        <div class="absolute bottom-0 left-0 w-full">
+            <svg viewBox="0 0 1440 120" class="w-full h-20 fill-secondary/10">
+                <path
+                    d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-gradient-to-b from-secondary/5 to-eco-green/5">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold text-primary mb-6">
+                    Nuestras <span class="text-secondary">Soluciones</span>
+                </h2>
+                <p class="text-xl text-primary/70 max-w-3xl mx-auto">
+                    Desarrollamos tecnologías avanzadas que combinan innovación y sostenibilidad
+                    para crear un futuro más verde y próspero.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 con imagen -->
+                <div
+                    class="bg-gradient-to-br from-primary/5 to-secondary/5 p-8 rounded-2xl border border-secondary/20 hover:border-secondary/40 transition-all duration-300 hover:shadow-xl group">
+                    <!-- Contenedor de la imagen -->
+                    <div class="mb-6 overflow-hidden rounded-xl">
+                        <img src="/assets/images/purificacion.jpg" alt="Sistema de purificación de agua"
+                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Purificación Avanzada</h3>
+                    <p class="text-primary/70">Sistemas de última generación para la purificación y tratamiento de agua
+                        usando tecnologías eco-amigables.</p>
+                </div>
+
+                <!-- Feature 2 con imagen -->
+                <div
+                    class="bg-gradient-to-br from-eco-green/5 to-light-green/5 p-8 rounded-2xl border border-eco-green/20 hover:border-eco-green/40 transition-all duration-300 hover:shadow-xl group">
+                    <!-- Contenedor de la imagen -->
+                    <div class="mb-6 overflow-hidden rounded-xl">
+                        <img src="/assets/images/monitoreo.jpg" alt="Sistema de monitoreo inteligente"
+                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Monitoreo Inteligente</h3>
+                    <p class="text-primary/70">Sensores IoT y análisis en tiempo real para optimizar el uso de recursos
+                        y reducir el desperdicio.</p>
+                </div>
+
+                <!-- Feature 3 con imagen -->
+                <div
+                    class="bg-gradient-to-br from-light-green/5 to-secondary/5 p-8 rounded-2xl border border-light-green/20 hover:border-light-green/40 transition-all duration-300 hover:shadow-xl group">
+                    <!-- Contenedor de la imagen -->
+                    <div class="mb-6 overflow-hidden rounded-xl">
+                        <img src="/assets/images/automatizacion.jpg" alt="Sistema de automatización verde"
+                            class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Automatización Verde</h3>
+                    <p class="text-primary/70">Procesos automatizados que reducen el consumo energético y maximizan la
+                        eficiencia operativa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Misión, Visión y Valores -->
+    <section class="py-20 relative overflow-hidden">
+        <!-- Fondo decorativo -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-green-50 to-cyan-50"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-eco-green/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <!-- Título principal -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-black mb-4">
+                    Nuestra Esencia
+                </h2>
+                <p class="text-black font-semibold">
+                    Conoce los principios que nos guían hacia un futuro más sostenible y responsable con el agua
+                </p>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-eco-green mx-auto mt-6 rounded-full"></div>
+            </div>
+
+
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+                <!-- Misión -->
+                <div class="group hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl">
+                    <div
+                        class="relative h-full p-8 bg-white/90 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden">
+                        <!-- Decoración superior -->
+                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-eco-green to-eco-green/60">
+                        </div>
+
+                        <!-- Icono -->
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-eco-green to-eco-green/80 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="text-2xl font-bold text-primary mb-6 group-hover:text-eco-green transition-colors duration-300">
+                            Misión
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Brindar soluciones innovadoras y sostenibles para el tratamiento y uso responsable del agua,
+                            mejorando la calidad de vida de las personas y cuidando el medio ambiente.
+                        </p>
+
+                        <!-- Decoración inferior -->
+                        <div
+                            class="absolute bottom-0 right-0 w-20 h-20 bg-eco-green/10 rounded-full transform translate-x-6 translate-y-6">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visión -->
+                <div class="group hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl">
+                    <div
+                        class="relative h-full p-8 bg-white/90 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden">
+                        <!-- Decoración superior -->
+                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-secondary to-secondary/60">
+                        </div>
+
+                        <!-- Icono -->
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-secondary to-secondary/80 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="text-2xl font-bold text-primary mb-6 group-hover:text-secondary transition-colors duration-300">
+                            Visión
+                        </h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Ser líderes en el sector de purificación y ahorro de agua a nivel nacional,
+                            reconocidos por nuestra calidad, compromiso y responsabilidad ambiental.
+                        </p>
+
+                        <!-- Decoración inferior -->
+                        <div
+                            class="absolute bottom-0 right-0 w-20 h-20 bg-secondary/10 rounded-full transform translate-x-6 translate-y-6">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Valores -->
+                <div class="group hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl">
+                    <div
+                        class="relative h-full p-8 bg-white/90 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden">
+                        <!-- Decoración superior -->
+                        <div
+                            class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-light-green to-light-green/60">
+                        </div>
+
+                        <!-- Icono -->
+                        <div
+                            class="w-16 h-16 bg-gradient-to-br from-light-green to-light-green/80 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="text-2xl font-bold text-primary mb-6 group-hover:text-light-green transition-colors duration-300">
+                            Valores
+                        </h3>
+                        <div class="space-y-4">
+                            <div
+                                class="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300">
+                                <div class="w-8 h-8 bg-light-green/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-light-green" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700 font-medium">Responsabilidad ambiental</span>
+                            </div>
+                            <div
+                                class="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300">
+                                <div class="w-8 h-8 bg-light-green/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-light-green" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700 font-medium">Innovación constante</span>
+                            </div>
+                            <div
+                                class="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300">
+                                <div class="w-8 h-8 bg-light-green/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-light-green" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700 font-medium">Compromiso con la calidad</span>
+                            </div>
+                            <div
+                                class="flex items-center space-x-3 group-hover:translate-x-2 transition-transform duration-300">
+                                <div class="w-8 h-8 bg-light-green/20 rounded-full flex items-center justify-center">
+                                    <svg class="w-4 h-4 text-light-green" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7" />
+                                    </svg>
+                                </div>
+                                <span class="text-gray-700 font-medium">Atención personalizada</span>
+                            </div>
+                        </div>
+
+                        <!-- Decoración inferior -->
+                        <div
+                            class="absolute bottom-0 right-0 w-20 h-20 bg-light-green/10 rounded-full transform translate-x-6 translate-y-6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-primary/90 relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern opacity-5"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-secondary mb-2">+10</div>
+                    <div class="text-light-green font-semibold">Años Mejorando la Calidad de Vida</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-eco-green mb-2">+200</div>
+                    <div class="text-secondary font-semibold">Familias Satisfechas</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-light-green mb-2">+150M</div>
+                    <div class="text-secondary font-semibold">Litros de Agua Ahorrados</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-secondary mb-2">24/7</div>
+                    <div class="text-eco-green font-semibold">Atención y Soporte Personalizado</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-eco-green/10 via-light-green/10 to-secondary/10">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-primary mb-6 ">
+                ¿Listo para el <span class="text-secondary">Cambio</span>?
+            </h2>
+            <p class="text-xl text-primary/70 mb-8 max-w-2xl mx-auto">
+                Únete a la revolución tecnológica verde. Descubre cómo nuestras soluciones
+                pueden transformar tu empresa hacia un futuro sostenible.
             </p>
-          </div>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                    class="bg-gradient-to-r from-secondary to-light-green text-primary px-10 py-4 rounded-xl font-bold text-xl shadow-2xl hover:shadow-secondary/25 transform hover:scale-105 transition-all duration-300">
+                    Comenzar Ahora
+                </button>
+            </div>
         </div>
-        <div class="text-center">
-          <div class="bg-gray-100 rounded-lg p-8 mb-4 hover:bg-gray-200 transition duration-300 cursor-pointer">
-            <div class="text-4xl mb-4">📄</div>
-            <h4 class="font-semibold text-gray-800">Documentación Técnica</h4>
-            <p class="text-gray-600 text-sm mt-2">
-              Especificaciones detalladas y guías de instalación
-            </p>
-          </div>
-        </div>
-        <div class="text-center">
-          <div class="bg-gray-100 rounded-lg p-8 mb-4 hover:bg-gray-200 transition duration-300 cursor-pointer">
-            <div class="text-4xl mb-4">🖼️</div>
-            <h4 class="font-semibold text-gray-800">Galería de Imágenes</h4>
-            <p class="text-gray-600 text-sm mt-2">
-              Instalaciones y proyectos realizados
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Testimonios -->
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-gray-800 mb-4">Lo que Dicen Nuestros Clientes</h2>
-      <div class="w-24 h-1 bg-cyan-500 mx-auto mb-8"></div>
-    </div>
+    <!-- Comentarios Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-primary mb-12">Lo que dicen nuestros clientes</h2>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition duration-300">
-        <div class="flex items-center mb-4">
-          <div class="flex text-yellow-500 text-lg">
-            ⭐⭐⭐⭐⭐
-          </div>
-          <span class="ml-2 text-gray-600 text-sm">(5.0)</span>
-        </div>
-        <p class="text-gray-600 mb-4 italic">
-          "La implementación del sistema de Water Life transformó completamente nuestra 
-          gestión ambiental. Excelente servicio y resultados excepcionales."
-        </p>
-        <div class="flex items-center">
-          <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mr-4">
-            <span class="text-cyan-600 font-semibold">MR</span>
-          </div>
-          <div>
-            <div class="font-semibold text-gray-800">María Rodríguez</div>
-            <div class="text-gray-600 text-sm">Directora de Sostenibilidad, EcoTech</div>
-          </div>
-        </div>
-      </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div *ngFor="let comentario of comentarios"
+                    class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary/10 p-3 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold text-gray-800">{{comentario.usuarioNombre || 'Anónimo'}}</h4>
+                            <p class="text-sm text-gray-500">{{comentario.fechaCreacion | date:'mediumDate'}}</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">{{comentario.texto}}</p>
 
-      <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition duration-300">
-        <div class="flex items-center mb-4">
-          <div class="flex text-yellow-500 text-lg">
-            ⭐⭐⭐⭐⭐
-          </div>
-          <span class="ml-2 text-gray-600 text-sm">(5.0)</span>
+                    <!-- Respuesta del admin (si existe) -->
+                    <div *ngIf="comentario.respuesta" class="bg-gray-50 p-4 rounded-md border-l-4 border-primary">
+                        <div class="flex items-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-primary mr-2" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <span class="font-semibold text-primary">{{comentario.adminRespuestaNombre || 'Equipo de
+                                soporte'}}</span>
+                        </div>
+                        <p class="text-gray-600">{{comentario.respuesta}}</p>
+                        <p *ngIf="comentario.fechaRespuesta" class="text-xs text-gray-400 mt-2">
+                            Respondido el {{comentario.fechaRespuesta | date:'mediumDate'}}
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <p class="text-gray-600 mb-4 italic">
-          "Tecnología de vanguardia con un impacto real en nuestros objetivos de 
-          sostenibilidad. El equipo de Water Life es excepcional."
-        </p>
-        <div class="flex items-center">
-          <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mr-4">
-            <span class="text-cyan-600 font-semibold">CG</span>
-          </div>
-          <div>
-            <div class="font-semibold text-gray-800">Carlos García</div>
-            <div class="text-gray-600 text-sm">Gerente Ambiental, GreenCorp</div>
-          </div>
-        </div>
-      </div>
+    </section>
+</body>
 
-      <div class="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition duration-300">
-        <div class="flex items-center mb-4">
-          <div class="flex text-yellow-500 text-lg">
-            ⭐⭐⭐⭐⭐
-          </div>
-          <span class="ml-2 text-gray-600 text-sm">(5.0)</span>
-        </div>
-        <p class="text-gray-600 mb-4 italic">
-          "Reducimos nuestra huella de carbono en un 40% gracias a las soluciones 
-          de Water Life. Inversión que vale la pena."
-        </p>
-        <div class="flex items-center">
-          <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mr-4">
-            <span class="text-cyan-600 font-semibold">AL</span>
-          </div>
-          <div>
-            <div class="font-semibold text-gray-800">Ana López</div>
-            <div class="text-gray-600 text-sm">CEO, EcoSolutions</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="py-16 bg-gray-50">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-gray-800 mb-4">Preguntas Frecuentes</h2>
-      <div class="w-24 h-1 bg-cyan-500 mx-auto mb-8"></div>
-    </div>
-
-    <div class="max-w-4xl mx-auto">
-      <div class="space-y-4">
-        <div class="bg-white rounded-lg shadow-sm">
-          <div class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300 cursor-pointer">
-            <span class="font-semibold text-gray-800">¿Qué tipos de soluciones tecnológicas ofrecen?</span>
-            <span class="text-cyan-500">▼</span>
-          </div>
-          <div class="px-6 pb-4 text-gray-600">
-            Ofrecemos sistemas de purificación inteligente, monitores ambientales IoT, gestión energética sustentable y soluciones personalizadas para desafíos ecológicos específicos.
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-sm">
-          <div class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300 cursor-pointer">
-            <span class="font-semibold text-gray-800">¿Cuánto tiempo toma la implementación de un sistema?</span>
-            <span class="text-cyan-500">▼</span>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-sm">
-          <div class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300 cursor-pointer">
-            <span class="font-semibold text-gray-800">¿Ofrecen soporte técnico después de la instalación?</span>
-            <span class="text-cyan-500">▼</span>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-sm">
-          <div class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300 cursor-pointer">
-            <span class="font-semibold text-gray-800">¿Sus sistemas son compatibles con infraestructura existente?</span>
-            <span class="text-cyan-500">▼</span>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-lg shadow-sm">
-          <div class="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition duration-300 cursor-pointer">
-            <span class="font-semibold text-gray-800">¿Qué garantías ofrecen en sus productos?</span>
-            <span class="text-cyan-500">▼</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Solicitud de Cotización -->
-<section class="py-16 bg-gradient-to-r from-cyan-500 to-blue-600 text-white">
-  <div class="container mx-auto px-6">
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-4">Solicita tu Cotización</h2>
-        <p class="text-xl opacity-90">
-          Obtén una propuesta personalizada para tu proyecto ecológico
-        </p>
-      </div>
-
-      <form class="grid md:grid-cols-2 gap-6">
-        <div>
-          <label class="block text-sm font-semibold mb-2">Nombre Completo</label>
-          <input 
-            type="text" 
-            class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 border-0 focus:ring-4 focus:ring-cyan-300 outline-none"
-            placeholder="Tu nombre completo"
-          >
-        </div>
-        <div>
-          <label class="block text-sm font-semibold mb-2">Email</label>
-          <input 
-            type="email" 
-            class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 border-0 focus:ring-4 focus:ring-cyan-300 outline-none"
-            placeholder="tu@email.com"
-          >
-        </div>
-        <div>
-          <label class="block text-sm font-semibold mb-2">Teléfono</label>
-          <input 
-            type="tel" 
-            class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 border-0 focus:ring-4 focus:ring-cyan-300 outline-none"
-            placeholder="+52 123 456 7890"
-          >
-        </div>
-        <div>
-          <label class="block text-sm font-semibold mb-2">Empresa</label>
-          <input 
-            type="text" 
-            class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 border-0 focus:ring-4 focus:ring-cyan-300 outline-none"
-            placeholder="Nombre de tu empresa"
-          >
-        </div>
-        <div class="md:col-span-2">
-          <label class="block text-sm font-semibold mb-2">Servicio de Interés</label>
-          <select class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 border-0 focus:ring-4 focus:ring-cyan-300 outline-none">
-            <option value="">Selecciona un servicio</option>
-            <option value="purificacion">Sistema de Purificación Inteligente</option>
-            <option value="monitoreo">Monitor Ambiental IoT</option>
-            <option value="energia">Gestión Energética Sustentable</option>
-            <option value="personalizado">Solución Personalizada</option>
-          </select>
-        </div>
-        <div class="md:col-span-2">
-          <label class="block text-sm font-semibold mb-2">Describe tu Proyecto</label>
-          <textarea 
-            rows="4"
-            class="w-full px-4 py-3 rounded-lg bg-white text-gray-800 border-0 focus:ring-4 focus:ring-cyan-300 outline-none resize-none"
-            placeholder="Cuéntanos sobre tu proyecto y necesidades específicas..."
-          ></textarea>
-        </div>
-        <div class="md:col-span-2 text-center">
-          <button 
-            type="submit"
-            class="bg-[#0FF4BC] hover:bg-[#0EE43B] text-white font-bold py-4 px-12 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg"
-          >
-            Solicitar Cotización Gratuita
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Información de Contacto -->
-<section class="py-16 bg-white">
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold text-gray-800 mb-4">Contacto</h2>
-      <div class="w-24 h-1 bg-cyan-500 mx-auto mb-8"></div>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="text-center">
-        <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <span class="text-cyan-600 text-2xl">📍</span>
-        </div>
-        <h3 class="font-semibold text-gray-800 mb-2">Ubicación</h3>
-        <p class="text-gray-600">
-          León de los Aldama<br>
-          Guanajuato, México
-        </p>
-      </div>
-      <div class="text-center">
-        <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <span class="text-cyan-600 text-2xl">📞</span>
-        </div>
-        <h3 class="font-semibold text-gray-800 mb-2">Teléfono</h3>
-        <p class="text-gray-600">
-          +52 (477) 123-4567<br>
-          +52 (477) 765-4321
-        </p>
-      </div>
-      <div class="text-center">
-        <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <span class="text-cyan-600 text-2xl">✉️</span>
-        </div>
-        <h3 class="font-semibold text-gray-800 mb-2">Email</h3>
-        <p class="text-gray-600">
-            
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+</html>

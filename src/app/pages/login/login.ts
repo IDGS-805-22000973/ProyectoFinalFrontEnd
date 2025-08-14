@@ -20,7 +20,7 @@ export class Login {
 
   constructor(
     private fb: FormBuilder,
-    private authService: Auth, // Inyectamos el servicio de autenticación
+    private authService: Auth, 
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -46,9 +46,9 @@ export class Login {
         const userRole = this.authService.getRole();
 
         if (userRole === 'admin') {
-          this.router.navigate(['/proveedores']);
+          this.router.navigate(['/dashboard']);
         } else if (userRole === 'Cliente') {
-          this.router.navigate(['/']);
+          this.router.navigate(['/cliente']);
         } else {
 
           this.router.navigate(['/']);

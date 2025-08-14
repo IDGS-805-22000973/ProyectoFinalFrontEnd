@@ -27,10 +27,18 @@ export class Auth {
       { headers }
     ).pipe(
       tap((response) => {
+        // Guardar el token
         localStorage.setItem(this.tokenKey, response.token);
+
+        // Decodificar el token para obtener información del usuario
+        const decodedToken: any = jwtDecode(response.token);
+
+        // Guardar información del usuario
         localStorage.setItem(this.userKey, JSON.stringify({
-          nombreUsuario: response.nombreUsuario,
-          rol: response.rol
+          nombreUsuario: decodedToken.nombreUsuario || response.nombreUsuario,
+          rol: decodedToken.rol || response.rol,
+          email: decodedToken.email || data.email, // Agregar email si es necesario
+          userId: decodedToken.userId || decodedToken.sub // Agregar ID del usuario si está en el token
         }));
       })
     );
@@ -82,5 +90,18 @@ export class Auth {
   logout() {
     localStorage.removeItem(this.tokenKey);
     localStorage.removeItem(this.userKey);
+  }
+
+
+  // Método para obtener el ID del usuario
+  getUserId(): string | null {
+    const user = this.getUserInfo();
+    return user && (user as any).userId ? (user as any).userId : null;
+  }
+
+  // Método para obtener el email del usuario
+  getUserEmail(): string | null {
+    const user = this.getUserInfo();
+    return user && (user as any).email ? (user as any).email : null;
   }
 }
